@@ -1,1 +1,5 @@
-<p>contact-list works!</p>
+<app-generic-list *ngIf="contacts|async" [itemTemplate]="item" [data]="(contacts|async)!">
+  <ng-template #item let-item>
+    <app-contact-row [contact]="item"></app-contact-row>
+  </ng-template>
+</app-generic-list>

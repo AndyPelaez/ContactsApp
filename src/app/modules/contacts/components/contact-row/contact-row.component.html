@@ -1,0 +1,10 @@
+<form [formGroup]="contactForm" class="contact-row__content">
+  <app-input [editing]="editing" [label]="'Name'" formControlName="name" [name]="'name'"></app-input>
+  <app-input [editing]="editing" [label]="'Address'" formControlName="address" [name]="'address'"></app-input>
+  <app-input [editing]="editing" [label]="'Phone Number'" formControlName="phoneNumber" [name]="'phoneNumber'"></app-input>
+  <app-input [editing]="editing" [label]="'Email'" formControlName="email" [name]="'email'"></app-input>
+  <div class="flex flex-row">
+    <app-button [text]="editing?'Save':'Edit'" (onClick)="editHandle()" theme="link"></app-button>
+    <app-button text="Remove" theme="link"></app-button>
+  </div>
+</form>
