@@ -1,3 +1,6 @@
+:host(app-input) {
+  @apply w-full;
+}
 :host(app-input).ng-invalid.ng-touched input {
   @apply border-red-500;
 }

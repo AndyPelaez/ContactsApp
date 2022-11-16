@@ -18,10 +18,11 @@ import {
   ],
 })
 export class InputComponent implements ControlValueAccessor {
-  @Input() type!: 'text' | 'email';
+  @Input() type: 'text' | 'email' = 'text';
   @Input() name!: string;
   @Input() label!: string;
   @Input() disabled: boolean = false;
+  @Input() editing: boolean = false;
 
   value: string = '';
 
