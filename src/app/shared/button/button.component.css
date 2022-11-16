@@ -1,0 +1,10 @@
+button {
+  @apply rounded-sm py-0.5 px-4;
+}
+
+button.link {
+  @apply text-gray-500 underline hover:text-gray-700 active:text-gray-900;
+}
+button.default {
+  @apply text-gray-100 bg-gray-500 hover:bg-gray-600 active:bg-gray-300 active:text-gray-500;
+}

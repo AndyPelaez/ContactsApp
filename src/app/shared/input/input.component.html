@@ -1,0 +1,5 @@
+<div class="flex flex-col">
+  <label class="text-gray-400 px-2" [for]="name">{{label}}</label>
+  <input class="text-gray-800 border border-gray-400 px-2 h-9 focus:border-gray-200 outline-none " (input)="changeValue(input.value)" [value]="value"
+    [id]="name" [name]="name" [type]="type" #input>
+</div>

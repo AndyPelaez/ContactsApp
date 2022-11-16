@@ -1,0 +1,3 @@
+:host(app-input).ng-invalid.ng-touched input {
+  @apply border-red-500;
+}

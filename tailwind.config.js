@@ -4,7 +4,11 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      spacing: {
+        "0.5":"1px"
+      }
+    },
   },
   plugins: [],
 }
