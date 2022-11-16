@@ -1,0 +1,9 @@
+.generic-list__content {
+  @apply bg-white mx-5 my-10 shadow-md rounded-sm;
+}
+.generic-list__items {
+  @apply flex flex-col space-y-6 px-5 py-10;
+}
+.generic-list__item {
+  @apply p-2 border border-gray-200;
+}
