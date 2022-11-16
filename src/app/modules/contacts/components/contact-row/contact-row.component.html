@@ -5,6 +5,6 @@
   <app-input [editing]="editing" [label]="'Email'" formControlName="email" [name]="'email'"></app-input>
   <div class="flex flex-row">
     <app-button [text]="editing?'Save':'Edit'" (onClick)="editHandle()" theme="link"></app-button>
-    <app-button text="Remove" theme="link"></app-button>
+    <app-button text="Remove" theme="link" (onClick)="handleOnRemove()"></app-button>
   </div>
 </form>

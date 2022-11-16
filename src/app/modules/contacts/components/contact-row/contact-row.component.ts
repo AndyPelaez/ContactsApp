@@ -11,6 +11,7 @@ import { ContactValidator } from 'src/app/validators/contact.validator';
 })
 export class ContactRowComponent implements OnInit {
   @Input() contact!: Contact;
+  @Output() onDelete = new EventEmitter<Contact>();
 
   contactForm!: FormGroup;
   editing: boolean = false;
@@ -53,5 +54,16 @@ export class ContactRowComponent implements OnInit {
       .subscribe(() => {
         this.editing = false;
       });
+  }
+
+  handleOnRemove() {
+    const response = confirm('Are you sure?');
+    if (response) this.remove();
+  }
+
+  remove() {
+    this.contactService.removeItem(this.contact._id).subscribe(() => {
+      this.onDelete.emit(this.contact);
+    });
   }
 }

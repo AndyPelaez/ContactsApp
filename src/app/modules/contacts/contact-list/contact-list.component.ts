@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Contact } from 'src/app/models/contact.model';
 import { ContactService } from 'src/app/services/contact.service';
 
@@ -9,12 +8,18 @@ import { ContactService } from 'src/app/services/contact.service';
   styleUrls: ['./contact-list.component.css'],
 })
 export class ContactListComponent implements OnInit {
-  contacts?: Observable<Contact[]>;
+  contacts: Contact[] = [];
 
   constructor(private contactService: ContactService) {}
 
   ngOnInit(): void {
-    this.contacts = this.contactService.getItems();
+    this.contactService.getItems().subscribe((contacts) => {
+      this.contacts = contacts;
+    });
   }
 
+  handleOnDelete(contact: Contact) {
+    const index = this.contacts.findIndex((c) => c._id === contact._id);
+    this.contacts.splice(index, 1);
+  }
 }
