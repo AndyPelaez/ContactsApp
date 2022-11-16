@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Contact } from 'src/app/models/contact.model';
+import { ContactService } from 'src/app/services/contact.service';
 import { ContactValidator } from 'src/app/validators/contact.validator';
 
 @Component({
@@ -14,7 +15,10 @@ export class ContactRowComponent implements OnInit {
   contactForm!: FormGroup;
   editing: boolean = false;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private contactService: ContactService
+  ) {}
 
   ngOnInit(): void {
     this.contactForm = this.fb.group({
@@ -37,8 +41,17 @@ export class ContactRowComponent implements OnInit {
   editHandle() {
     if (!this.editing) this.editing = true;
     else {
-      //TODO:Implement form sumbit
-      if (this.contactForm.valid) this.editing = false;
+      this.handleOnSubmit();
     }
+  }
+
+  handleOnSubmit() {
+    if (!this.contactForm.valid) return;
+    Object.assign(this.contact, this.contactForm.value);
+    this.contactService
+      .updateItem(this.contact._id, this.contact)
+      .subscribe(() => {
+        this.editing = false;
+      });
   }
 }

@@ -30,13 +30,15 @@ export class InputComponent implements ControlValueAccessor {
   onTouched: Function = (value: string) => {};
 
   changeValue(value: string) {
-    if (this.value) this.onChange(value);
+    if (value) {
+      this.onChange(value);
+      this.writeValue(value)
+    }
     this.onTouched();
   }
 
   writeValue(value: string): void {
     this.value = value;
-    console.log(value);
   }
   registerOnChange(fn: any): void {
     this.onChange = fn;
