@@ -1,6 +1,6 @@
-<div class="flex flex-col w-full">
-  <label class="text-gray-400 px-2" [for]="name">{{label}}</label>
-  <input *ngIf="editing" class="text-gray-700 border border-gray-400 px-2 h-9 focus:border-gray-200 outline-none "
+<div class="flex flex-col">
+  <label class="text-gray-400 whitespace-nowrap px-2" [for]="name">{{label}}</label>
+  <input *ngIf="editing" class="text-gray-700 font-semibold text-lg  border  border-gray-400 px-2 h-9 w-full focus:border-gray-200 outline-none "
     (input)="changeValue(input.value)" [value]="value" [id]="name" [name]="name" [type]="type" #input>
   <p class="font-semibold text-lg px-2 text-gray-700" *ngIf="!editing">
     {{value}}
