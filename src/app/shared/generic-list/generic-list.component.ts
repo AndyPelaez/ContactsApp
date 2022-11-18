@@ -6,7 +6,7 @@ import { Component, Input, OnInit, TemplateRef } from '@angular/core';
   styleUrls: ['./generic-list.component.css'],
 })
 export class GenericListComponent implements OnInit {
-  @Input() data!: any[];
+  @Input() data: any[] = [];
   @Input() itemTemplate!: TemplateRef<any>;
 
   constructor() {}

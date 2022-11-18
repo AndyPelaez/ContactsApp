@@ -1,7 +1,10 @@
 <div class="generic-list__content">
-  <div class="generic-list__items">
+  <div *ngIf="data && data.length>0" class="generic-list__items">
     <div class="generic-list__item" *ngFor="let item of data; let i = index">
       <ng-template ngFor let-item [ngForOf]="[item]" [ngForTemplate]="itemTemplate"></ng-template>
     </div>
+  </div>
+  <div *ngIf="!data || data.length===0 " class="generic-list__items">
+    <p>No Data!</p>
   </div>
 </div>

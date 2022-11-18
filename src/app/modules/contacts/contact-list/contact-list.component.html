@@ -1,4 +1,4 @@
-<app-generic-list *ngIf="contacts.length>0" [itemTemplate]="item" [data]="contacts">
+<app-generic-list [itemTemplate]="item" [data]="contacts">
   <ng-template #item let-item>
     <app-contact-row [contact]="item" (onDelete)="handleOnDelete($event)"></app-contact-row>
   </ng-template>
