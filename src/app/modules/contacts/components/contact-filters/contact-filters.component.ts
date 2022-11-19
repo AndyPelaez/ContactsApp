@@ -21,6 +21,7 @@ export class ContactFiltersComponent implements OnInit {
     this.filters.splice(index, 1);
   }
   handleOnCreate(event: KeyboardEvent) {
+    if (!this.filterForm.valid) return;
     if (event.code === 'Enter') {
       this.filters.push(this.filterForm.value['value']);
       this.filterForm.reset();
