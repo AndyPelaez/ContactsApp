@@ -7,13 +7,17 @@ import { ContactListComponent } from './contact-list/contact-list.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContactRowComponent } from './components/contact-row/contact-row.component';
+import { ContactFiltersComponent } from './components/contact-filters/contact-filters.component';
+import { FilterElementComponent } from './components/filter-element/filter-element.component';
 
 
 @NgModule({
   declarations: [
     ContactsComponent,
     ContactListComponent,
-    ContactRowComponent
+    ContactRowComponent,
+    ContactFiltersComponent,
+    FilterElementComponent
   ],
   imports: [
     CommonModule,

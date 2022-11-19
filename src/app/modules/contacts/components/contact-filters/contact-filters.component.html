@@ -1,0 +1,12 @@
+<div class="py-10 px-16 bg-gradient-to-b from-black to-gray-900">
+  <div class="bg-white py-3 px-5 flex flex-row justify-between space-x-5">
+    <div class="flex flex-row overflow-x-auto no-scrollbar flex-nowrap space-x-5 whitespace-nowrap">
+      <app-filter-element (onDelete)="handleOnDelete($event)" *ngFor="let filter of filters; index as i"
+        [value]="filter" [index]="i"></app-filter-element>
+      <form [formGroup]="filterForm">
+        <input formControlName="value" (keypress)="handleOnCreate($event)" type="text" class="outline-none" style="min-width: 300px">
+      </form>
+    </div>
+    <app-button text="SEARCH"></app-button>
+  </div>
+</div>

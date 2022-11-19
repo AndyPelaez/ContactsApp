@@ -1,3 +1,4 @@
+<app-contact-filters></app-contact-filters>
 <app-generic-list [itemTemplate]="item" [data]="contacts">
   <ng-template #item let-item>
     <app-contact-row [contact]="item" (onDelete)="handleOnDelete($event)"></app-contact-row>
