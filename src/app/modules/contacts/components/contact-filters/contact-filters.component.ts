@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -10,6 +10,7 @@ export class ContactFiltersComponent implements OnInit {
   filters: string[] = [];
   filterForm: FormGroup;
 
+  @Output() onSearch = new EventEmitter<string[]>();
   constructor(private fb: FormBuilder) {
     this.filterForm = fb.group({ value: ['', Validators.required] });
   }
@@ -24,5 +25,9 @@ export class ContactFiltersComponent implements OnInit {
       this.filters.push(this.filterForm.value['value']);
       this.filterForm.reset();
     }
+  }
+
+  handleOnSearch() {
+    this.onSearch.emit(this.filters);
   }
 }

@@ -13,13 +13,20 @@ export class ContactListComponent implements OnInit {
   constructor(private contactService: ContactService) {}
 
   ngOnInit(): void {
-    this.contactService.getItems().subscribe((contacts) => {
+    this.updateContacts();
+  }
+
+  updateContacts(queries: string[] = []) {
+    this.contactService.getItems(queries).subscribe((contacts) => {
       this.contacts = contacts;
     });
   }
-
   handleOnDelete(contact: Contact) {
     const index = this.contacts.findIndex((c) => c._id === contact._id);
     this.contacts.splice(index, 1);
+  }
+
+  handleOnSearch(queries: string[]) {
+    this.updateContacts(queries);
   }
 }
