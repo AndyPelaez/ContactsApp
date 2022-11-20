@@ -42,7 +42,6 @@ export class InputComponent implements ControlValueAccessor {
   }
   registerOnChange(fn: any): void {
     this.onChange = fn;
-    console.log('**');
   }
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
