@@ -6,7 +6,7 @@ export class ContactValidator {
 
     const value: string = control.value;
 
-    const numberRegexp = /^\+?[0-9]+$/;
+    const numberRegexp = /^[0-9]+$/;
 
     if (!value || !numberRegexp.test(value) || value.length > 15)
       return invalidError;
